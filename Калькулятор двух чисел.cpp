@@ -6,25 +6,19 @@ private:
     double _num1;
     double _num2;
 public:
-    void set_num1(int num1) { 
-        if (num1 == 0) {
-            while (num1 == 0) {
-                cout << "Неверный ввод!" << endl;
-                cout << "Введите num1 : ";
-                cin >> num1;
-            }
+     bool set_num1(int num1) { 
+        if (num1 != 0) {
+            _num1 = num1;
+            return true;
         }
-        _num1 = num1;
+        return false;
     }
-    void set_num2(int num2) {
-        if (num2 == 0) {
-            while (num2 == 0) {
-                cout << "Неверный ввод!" << endl;
-                cout << "Введите num2 : ";
-                cin >> num2;
-            }
+    bool set_num2(int num2) { 
+        if (num2 != 0) {
+            _num2 = num2;
+            return true;
         }
-        _num2 = num2;
+        return false;
     }
     void double_add() { cout << "num1 + num2 = " << _num1 + _num2 << endl; }
     void double_multiply() { cout << "num1 * num2 = " << _num1 * _num2 << endl; }
@@ -42,8 +36,18 @@ int main()
     while (1) {
         cout << "Введите num1 : ";
         cin >> num1;
+        while (num1 == 0) {
+            cout << "Неверный ввод!" << endl;
+            cout << "Введите num1 : ";
+            cin >> num1;
+        }
         cout << "Введите num2 : ";
         cin >> num2;
+        while (num2 == 0) {
+            cout << "Неверный ввод!" << endl;
+            cout << "Введите num2 : ";
+            cin >> num2;
+        }
         resultat.set_num1(num1);
         resultat.set_num2(num2);
         resultat.double_add();
